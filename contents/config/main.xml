@@ -13,10 +13,10 @@
       <default>Gemini</default>
     </entry>
     <entry name="geminiModel" type="String">
-      <default>gemini-1.5-flash-latest</default>
+      <default>gemini-3-flash-preview</default>
     </entry>
     <entry name="question" type="String">
-      <default>Dammi una frase motivazionale per iniziare bene la giornata</default>
+      <default>Give me a motivational quote to start the day well</default>
     </entry>
     <entry name="cachedResponse" type="String">
       <default></default>

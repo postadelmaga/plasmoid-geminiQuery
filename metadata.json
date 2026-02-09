@@ -6,13 +6,13 @@
                 "Name": "postadelmaga"
             }
         ],
-        "Category": "Utilities",
-        "Description": "Plasmoid querying Gemini API with customizable query",
-        "Icon": "brain",
-        "Id": "org.kde.plasma.geminiquery",
-        "License": "GPL-3.0+",
         "Name": "Gemini Query",
         "Version": "2.0",
+        "Description": "Plasmoid querying Gemini API with customizable query",
+        "Category": "Utilities",
+        "Icon": "applications-education-science",
+        "Id": "org.kde.plasma.geminiquery",
+        "License": "GPL-3.0+",
         "Website": ""
     },
     "KPackageStructure": "Plasma/Applet",

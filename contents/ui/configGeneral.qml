@@ -48,6 +48,36 @@ Item {
             }
         }
 
+        QQC2.Label {
+            Layout.fillWidth: true
+            text: i18n("Get a free API Key at: <a href='%1'>Google AI Studio</a>", "https://aistudio.google.com/app/apikey")
+            textFormat: Text.RichText
+            wrapMode: Text.WordWrap
+            font.pointSize: Kirigami.Theme.smallFont.pointSize
+            onLinkActivated: (link) => Qt.openUrlExternally(link)
+            
+            MouseArea {
+                anchors.fill: parent
+                acceptedButtons: Qt.NoButton
+                cursorShape: parent.hoveredLink ? Qt.PointingHandCursor : Qt.ArrowCursor
+            }
+        }
+
+        Item {
+            Kirigami.FormData.isSection: false
+            height: Kirigami.Units.smallSpacing
+        }
+        
+        Item {
+            Kirigami.FormData.isSection: false
+            height: Kirigami.Units.smallSpacing
+        }
+        
+        Item {
+            Kirigami.FormData.isSection: false
+            height: Kirigami.Units.largeSpacing
+        }
+
         // Modello Gemini
         QQC2.ComboBox {
             id: geminiModelComboBox
@@ -58,12 +88,7 @@ Item {
                 "gemini-3-flash-preview",
                 "gemini-2.5-flash",
                 "gemini-2.5-flash-lite",
-                "gemini-2.5-pro",
-                "gemini-2.0-flash-exp",
-                "gemini-1.5-flash-latest",
-                "gemini-1.5-flash",
-                "gemini-1.5-pro-latest",
-                "gemini-1.5-pro"
+                "gemini-2.5-pro"
             ]
             
             // Note: I'm using the models suggested by the user and standard ones.
@@ -102,21 +127,6 @@ Item {
             height: Kirigami.Units.smallSpacing
         }
         
-        QQC2.Label {
-            Layout.fillWidth: true
-            text: i18n("Get a free API Key at: <a href='%1'>Google AI Studio</a>", "https://aistudio.google.com/app/apikey")
-            textFormat: Text.RichText
-            wrapMode: Text.WordWrap
-            font.pointSize: Kirigami.Theme.smallFont.pointSize
-            onLinkActivated: (link) => Qt.openUrlExternally(link)
-            
-            MouseArea {
-                anchors.fill: parent
-                acceptedButtons: Qt.NoButton
-                cursorShape: parent.hoveredLink ? Qt.PointingHandCursor : Qt.ArrowCursor
-            }
-        }
-        
         Item {
             Kirigami.FormData.isSection: false
             height: Kirigami.Units.largeSpacing
@@ -150,17 +160,14 @@ Item {
             height: Kirigami.Units.largeSpacing
         }
         
-        // Example questions
-        Kirigami.FormData.label: i18n("Example questions:")
-        
         ColumnLayout {
+            Kirigami.FormData.label: i18n("Example questions:")
             Layout.fillWidth: true
             spacing: Kirigami.Units.smallSpacing
             
             Repeater {
                 model: [
                     i18n("Give me a motivational quote to start the day well"),
-                    i18n("What is an interesting fact from today in history?"),
                     i18n("Give me a productivity tip for today"),
                     i18n("Suggest a quick recipe for dinner"),
                     i18n("What is the word of the day with its definition?")
@@ -171,24 +178,10 @@ Item {
                     text: modelData
                     flat: true
                     icon.name: "edit-copy"
+                    display: QQC2.AbstractButton.TextBesideIcon
                     
                     onClicked: {
                         questionField.text = modelData
-                    }
-                    
-                    contentItem: RowLayout {
-                        Kirigami.Icon {
-                            source: "edit-copy"
-                            Layout.preferredWidth: Kirigami.Units.iconSizes.small
-                            Layout.preferredHeight: Kirigami.Units.iconSizes.small
-                        }
-                        
-                        QQC2.Label {
-                            Layout.fillWidth: true
-                            text: parent.parent.text
-                            elide: Text.ElideRight
-                            horizontalAlignment: Text.AlignLeft
-                        }
                     }
                 }
             }
