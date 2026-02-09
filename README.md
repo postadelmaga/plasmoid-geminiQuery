@@ -9,7 +9,6 @@
 - **Customizable Experience**: 
     - Set a custom title for the widget (e.g. "Quote of the Day").
     - Hide or show the original question to keep the interface clean.
-- **Internationalization (i18n)**: Fully ready for multiple languages (English and Italian translations included out-of-the-box).
 - **Responsive Design**: Clean, modern interface that fits perfectly with the Breeze theme.
 
 ## 💾 Smart Caching System
