@@ -231,6 +231,13 @@ PlasmoidItem {
                 text: statusText !== "" ? statusText : (cachedResponse !== "" ? cachedResponse : i18n("No response in cache.\nPress 'Refresh' to query Gemini."))
                 wrapMode: Text.WordWrap
                 textFormat: Text.MarkdownText
+                onLinkActivated: (link) => Qt.openUrlExternally(link)
+                
+                MouseArea {
+                    anchors.fill: parent
+                    acceptedButtons: Qt.NoButton
+                    cursorShape: parent.hoveredLink ? Qt.PointingHandCursor : Qt.ArrowCursor
+                }
             }
         }
         
