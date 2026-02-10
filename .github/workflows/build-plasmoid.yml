@@ -1,0 +1,27 @@
+name: Build Plasmoid
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    
+    - name: Build plasmoid package
+      run: |
+        chmod +x build.sh
+        ./build.sh
+    
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: plasmoid-package
+        path: org.kde.plasma.geminiquery.plasmoid
+        retention-days: 30
