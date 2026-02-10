@@ -10,15 +10,16 @@ Item {
     property alias cfg_apiKey: apiKeyField.text
     property alias cfg_widgetTitle: widgetTitleField.text
     property alias cfg_geminiModel: geminiModelValue.text
-    property alias cfg_question: questionField.text
-    property alias cfg_cachedResponse: cachedResponseField.text
-    property alias cfg_cacheDate: cacheDateField.text
-    property alias cfg_googleSearchEnabled: googleSearchEnabledCheckBox.checked
     
     Kirigami.FormLayout {
         anchors.fill: parent
 
-        // Titolo Widget
+        // --- Sezione Aspetto ---
+        Item {
+            Kirigami.FormData.label: i18n("Appearance")
+            Kirigami.FormData.isSection: true
+        }
+
         QQC2.TextField {
             id: widgetTitleField
             Kirigami.FormData.label: i18n("Widget Title:")
@@ -26,12 +27,12 @@ Item {
             placeholderText: i18n("Enter a custom title (e.g. Daily Quote)")
         }
 
+        // --- Sezione API e Modello ---
         Item {
-            Kirigami.FormData.isSection: false
-            height: Kirigami.Units.smallSpacing
+            Kirigami.FormData.label: i18n("API & Model")
+            Kirigami.FormData.isSection: true
         }
         
-        // API Key
         RowLayout {
              Kirigami.FormData.label: i18n("Gemini API Key:")
             Layout.fillWidth: true
@@ -64,22 +65,6 @@ Item {
             }
         }
 
-        Item {
-            Kirigami.FormData.isSection: false
-            height: Kirigami.Units.smallSpacing
-        }
-        
-        Item {
-            Kirigami.FormData.isSection: false
-            height: Kirigami.Units.smallSpacing
-        }
-        
-        Item {
-            Kirigami.FormData.isSection: false
-            height: Kirigami.Units.largeSpacing
-        }
-
-        // Modello Gemini
         QQC2.ComboBox {
             id: geminiModelComboBox
             Kirigami.FormData.label: i18n("Gemini Model:")
@@ -92,10 +77,6 @@ Item {
                 "gemini-2.5-pro"
             ]
             
-            // Note: I'm using the models suggested by the user and standard ones.
-            // Documentation mentions gemini-2.0/2.5/3 but let's stick to the most common/stable ones for now 
-            // while allowing the user to see the "code model" as requested.
-            
             onActivated: geminiModelValue.text = currentText
             
             Component.onCompleted: {
@@ -105,7 +86,6 @@ Item {
                 }
             }
             
-            // Hidden text field to bridge Plasma configuration (expects a text property to alias)
             QQC2.TextField {
                 id: geminiModelValue
                 visible: false
@@ -114,117 +94,6 @@ Item {
                     if (index !== -1) {
                         geminiModelComboBox.currentIndex = index
                     }
-                }
-            }
-        }
-
-        Item {
-            Kirigami.FormData.isSection: false
-            height: Kirigami.Units.smallSpacing
-        }
-
-        // Google Search Grounding
-        QQC2.CheckBox {
-            id: googleSearchEnabledCheckBox
-            Kirigami.FormData.label: i18n("Google Search:")
-            text: i18n("Enable Google Search (Grounding)")
-            Layout.fillWidth: true
-            
-            QQC2.ToolTip.visible: hovered
-            QQC2.ToolTip.text: i18n("Allow Gemini to search the web for up-to-date information.")
-            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
-        }
-        
-        Item {
-            Kirigami.FormData.isSection: false
-            height: Kirigami.Units.largeSpacing
-        }
-        
-        // Question
-        ColumnLayout {
-            Kirigami.FormData.label: i18n("Question to ask:")
-            Layout.fillWidth: true
-            spacing: Kirigami.Units.smallSpacing
-            
-            QQC2.TextArea {
-                id: questionField
-                Layout.fillWidth: true
-                Layout.minimumHeight: Kirigami.Units.gridUnit * 4
-                placeholderText: i18n("Ex: What is the motivational quote of the day?")
-                wrapMode: TextEdit.Wrap
-            }
-            
-            QQC2.Label {
-                Layout.fillWidth: true
-                text: i18n("This question will be sent to Gemini once a day")
-                font.pointSize: Kirigami.Theme.smallFont.pointSize
-                opacity: 0.6
-                wrapMode: Text.WordWrap
-            }
-        }
-        
-        Item {
-            Kirigami.FormData.isSection: false
-            height: Kirigami.Units.largeSpacing
-        }
-        
-        ColumnLayout {
-            Kirigami.FormData.label: i18n("Example questions:")
-            Layout.fillWidth: true
-            spacing: Kirigami.Units.smallSpacing
-            
-            Repeater {
-                model: [
-                    i18n("Give me a motivational quote to start the day well"),
-                    i18n("Give me a productivity tip for today"),
-                    i18n("Suggest a quick recipe for dinner"),
-                    i18n("What is the word of the day with its definition?")
-                ]
-                
-                QQC2.Button {
-                    Layout.fillWidth: true
-                    text: modelData
-                    flat: true
-                    icon.name: "edit-copy"
-                    display: QQC2.AbstractButton.TextBesideIcon
-                    
-                    onClicked: {
-                        questionField.text = modelData
-                    }
-                }
-            }
-        }
-        
-        Item {
-            Kirigami.FormData.isSection: false
-            height: Kirigami.Units.largeSpacing
-        }
-        
-        // Gestione cache (nascosta)
-        QQC2.TextField {
-            id: cachedResponseField
-            visible: false
-        }
-        
-        QQC2.TextField {
-            id: cacheDateField
-            visible: false
-        }
-        
-        // Pulsante per pulire la cache
-        RowLayout {
-            Layout.fillWidth: true
-            
-            Item {
-                Layout.fillWidth: true
-            }
-            
-            QQC2.Button {
-                text: i18n("Clear cache")
-                icon.name: "edit-clear"
-                onClicked: {
-                    cachedResponseField.text = ""
-                    cacheDateField.text = ""
                 }
             }
         }

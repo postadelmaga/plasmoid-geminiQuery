@@ -21,6 +21,9 @@ PlasmoidItem {
     property string question: plasmoid.configuration.question
     onQuestionChanged: invalidateCacheAndReload()
     
+    property string formattingInstructions: plasmoid.configuration.formattingInstructions
+    onFormattingInstructionsChanged: invalidateCacheAndReload()
+    
     property bool googleSearchEnabled: plasmoid.configuration.googleSearchEnabled
     onGoogleSearchEnabledChanged: invalidateCacheAndReload()
     
@@ -124,7 +127,12 @@ PlasmoidItem {
         loading = true
         statusText = i18n("Loading...")
         
-        Gemini.queryGemini(apiKey, geminiModel, question, googleSearchEnabled, function(success, response) {
+        let fullQuery = question
+        if (formattingInstructions && formattingInstructions.trim() !== "") {
+            fullQuery += "\n\n" + formattingInstructions
+        }
+        
+        Gemini.queryGemini(apiKey, geminiModel, fullQuery, googleSearchEnabled, function(success, response) {
             loading = false
             if (success) {
                 statusText = ""
