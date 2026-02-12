@@ -7,7 +7,7 @@
             }
         ],
         "Name": "Gemini Query",
-        "Version": "2.1",
+        "Version": "1.0.1",
         "Description": "Plasmoid querying Gemini API with customizable query",
         "Category": "Utilities",
         "Icon": "applications-education-science",
