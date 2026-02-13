@@ -6,7 +6,7 @@
 
 ## 🚀 Installation
 
-1. Download [last release](https://github.com/postadelmaga/plasmoid-geminiQuery/releases/latest/download/org.kde.plasma.geminiquery.plasmoid) and run `kpackagetool6 -t Plasma/Applet -i org.kde.plasma.geminiquery.plasmoid`
+1. Download [last release](https://github.com/postadelmaga/plasmoid-geminiQuery/releases/latest/download/Ai-Query.plasmoid) and run `kpackagetool6 -t Plasma/Applet -i Ai-Query.plasmoid`
 2. Choose your AI provider:
    - **Google**: Obtain a free API Key from [Google AI Studio](https://aistudio.google.com/app/apikey)
    - **OpenRouter**: Get your API Key from [OpenRouter Settings](https://openrouter.ai/settings/keys)

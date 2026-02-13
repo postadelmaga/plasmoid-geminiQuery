@@ -1,14 +1,14 @@
 #!/bin/bash
 
 # Creazione del file .plasmoid
-echo "Creazione di org.kde.plasma.geminiquery.plasmoid..."
+echo "Creazione di Ai-Query.plasmoid..."
 
-zip -r org.kde.plasma.geminiquery.plasmoid org.kde.plasma.geminiquery/ \
-  -x "org.kde.plasma.geminiquery/.git/*"
+zip -r Ai-Query.plasmoid Ai-Query/ \
+  -x "Ai-Query/.git/*"
 
 # Verifica che il file sia stato creato
-if [ -f "org.kde.plasma.geminiquery.plasmoid" ]; then
-    echo "✓ File org.kde.plasma.geminiquery.plasmoid creato con successo!"
+if [ -f "Ai-Query.plasmoid" ]; then
+    echo "✓ File Ai-Query.plasmoid creato con successo!"
 else
     echo "✗ Errore nella creazione del file .plasmoid"
     exit 1

@@ -6,14 +6,14 @@
                 "Name": "postadelmaga"
             }
         ],
-        "Name": "Gemini Query",
+        "Name": "Ai Query",
         "Version": "1.0.1",
-        "Description": "Plasmoid querying Gemini API with customizable query",
+        "Description": "Plasmoid querying AI APIs with customizable query",
         "Category": "Utilities",
         "Icon": "applications-education-science",
-        "Id": "org.kde.plasma.geminiquery",
+        "Id": "Ai-Query",
         "License": "GPL-3.0+",
-        "Website": ""
+        "Website": "https://github.com/postadelmaga/plasmoid-AiQuery"
     },
     "KPackageStructure": "Plasma/Applet",
     "X-Plasma-API-Minimum-Version": "6.0"

@@ -28,13 +28,13 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: plasmoid-package
-        path: org.kde.plasma.geminiquery.plasmoid
+        path: Ai-Query.plasmoid
         retention-days: 30
     
     - name: Create Release
       if: startsWith(github.ref, 'refs/tags/')
       uses: softprops/action-gh-release@v1
       with:
-        files: org.kde.plasma.geminiquery.plasmoid
+        files: Ai-Query.plasmoid
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -69,7 +69,7 @@ function queryOpenRouter(apiKey, model, question, callback) {
         xhr.setRequestHeader("Content-Type", "application/json");
         xhr.setRequestHeader("Authorization", "Bearer " + apiKey);
         xhr.setRequestHeader("HTTP-Referer", "https://github.com/postadelmaga/plasmoid-geminiQuery"); // Replace with actual repo URL if known
-        xhr.setRequestHeader("X-Title", "Plasma Gemini Query");
+        xhr.setRequestHeader("X-Title", "Ai Query");
         xhr.timeout = 30000; // 30 seconds timeout
         xhr.send(JSON.stringify(payload));
     } catch (e) {
