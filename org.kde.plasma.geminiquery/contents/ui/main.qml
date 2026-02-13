@@ -219,7 +219,15 @@ PlasmoidItem {
             Kirigami.Heading {
                 Layout.fillWidth: true
                 level: 3
-                text: widgetTitle !== "" ? widgetTitle : i18n("AI Query")
+                text: widgetTitle 
+            }
+
+            QQC2.Label {
+                Layout.fillWidth: true
+                text: "(" + cachedModel + ")"
+                font.pointSize: Kirigami.Theme.smallFont.pointSize
+                opacity: 0.6
+                horizontalAlignment: Text.AlignRight
             }
             
             QQC2.ToolButton {
@@ -292,13 +300,7 @@ PlasmoidItem {
         QQC2.Label {
             Layout.fillWidth: true
             visible: cacheDate !== ""
-            text: {
-                var txt = i18n("Cache from: %1", formatCacheDate(cacheDate));
-                if (cachedModel !== "") {
-                    txt = txt + " (" + cachedModel + ")";
-                }
-                return txt;
-            }
+            text: i18n("Cache: %1", formatCacheDate(cacheDate))
             font.pointSize: Kirigami.Theme.smallFont.pointSize
             opacity: 0.6
             horizontalAlignment: Text.AlignRight

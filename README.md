@@ -1,26 +1,34 @@
-# Gemini Query
+# AI Query Widget
 
-**Gemini Query** is a lightweight KDE Plasma 6 widget that brings the intelligence of Google Gemini directly to your desktop. Designed for daily insights, motivational quotes, or quick technical facts, it performs recurring queries and keeps the results beautifully rendered on your panel or desktop.
+**AI Query** is a lightweight KDE Plasma 6 widget that brings the power of multiple AI providers directly to your desktop. Designed for daily insights, motivational quotes, or quick technical facts, it performs recurring queries and keeps the results beautifully rendered on your panel or desktop.
 
 ![image showing main widget face](./examples/main.png) 
 
 ## 🚀 Installation
 
 1. Download [last release](https://github.com/postadelmaga/plasmoid-geminiQuery/releases/latest/download/org.kde.plasma.geminiquery.plasmoid) and run `kpackagetool6 -t Plasma/Applet -i org.kde.plasma.geminiquery.plasmoid`
-2. Obtain a free API Key from [Google AI Studio](https://aistudio.google.com/app/apikey).
+2. Choose your AI provider:
+   - **Google**: Obtain a free API Key from [Google AI Studio](https://aistudio.google.com/app/apikey)
+   - **OpenRouter**: Get your API Key from [OpenRouter Settings](https://openrouter.ai/settings/keys)
 3. Configure your desired question and select your preferred model.
 4. Enjoy your AI-powered desktop!
 
 ## ✨ Features
 
-- **Latest Model Support**: Select from a wide range of Gemini models, including the cutting-edge **Gemini 2.5** and **Gemini 3 Preview**.
-- **Rich Markdown Rendering**: Responses are rendered with full Markdown support, including headers, bold text, lists, and links.
-- **Google Search Grounding**: Toggle **Google Search** in settings to allow Gemini to provide up-to-date information by searching the web.
+- **🔄 Multi-Provider Support**: Choose between Google Gemini and OpenRouter with a simple dropdown
+- **🆓 Free OpenRouter Models**: Access to 15+ free AI models including:
+  - DeepSeek R1 series (reasoning models)
+  - Meta Llama 3.3 70B Instruct
+  - Qwen3 Coder 480B (coding specialist)
+  - NVIDIA Nemotron series
+  - And many more!
+- **Latest Google Models**: Select from Gemini 2.5 and Gemini 3 Preview series
+- **Rich Markdown Rendering**: Responses are rendered with full Markdown support, including headers, bold text, lists, and clickable links
+- **Google Search Grounding**: Enable Google Search in settings to allow Gemini to provide up-to-date information by searching the web (Google provider only)
 - **Customizable Experience**: 
-    - Set a custom title for the widget (e.g. "Quote of the Day").
-    - Hide or show the original question to keep the interface clean.
-- **Responsive Design**: Clean, modern interface that fits perfectly with the Breeze theme.
-- **💾 Smart Caching System**:Gemini Query features an efficient local caching (daily) system designed to save your API quota
+  - add instruction to format your response
+- **Responsive Design**: Clean, modern interface that fits perfectly with the Breeze theme
+- **💾 Smart Caching System**: Efficient local caching (daily) system designed to save your API quota and provide instant responses
 
 
 ![image showing configuration window](./examples/config.png)
