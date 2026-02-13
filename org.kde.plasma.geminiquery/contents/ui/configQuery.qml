@@ -9,7 +9,6 @@ Item {
     
     property alias cfg_question: questionField.text
     property alias cfg_formattingInstructions: formattingInstructionsField.text
-    property alias cfg_googleSearchEnabled: googleSearchEnabledCheckBox.checked
     
     Kirigami.FormLayout {
         anchors.fill: parent
@@ -18,17 +17,6 @@ Item {
         Item {
             Kirigami.FormData.label: i18n("Query Settings")
             Kirigami.FormData.isSection: true
-        }
-
-        QQC2.CheckBox {
-            id: googleSearchEnabledCheckBox
-            Kirigami.FormData.label: i18n("Grounding:")
-            text: i18n("Enable Google Search")
-            Layout.fillWidth: true
-            
-            QQC2.ToolTip.visible: hovered
-            QQC2.ToolTip.text: i18n("Allow Gemini to search the web for up-to-date information.")
-            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
         }
         
         ColumnLayout {

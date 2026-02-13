@@ -13,6 +13,7 @@ Item {
     property alias cfg_openRouterApiKey: openRouterApiKeyField.text
     property alias cfg_openRouterModel: openRouterModelField.text
     property alias cfg_provider: providerValue.text
+    property alias cfg_googleSearchEnabled: googleSearchEnabledCheckBox.checked
     
     Kirigami.FormLayout {
         anchors.fill: parent
@@ -63,7 +64,7 @@ Item {
         // --- Google Settings ---
         
         RowLayout {
-            visible: providerValue.text === "google" || providerValue.text === "gemini" // Support old value temporarily
+            visible: providerValue.text === "google" 
             Kirigami.FormData.label: i18n("Google API Key:")
             Layout.fillWidth: true
             
@@ -81,7 +82,7 @@ Item {
         }
 
         QQC2.Label {
-            visible: providerValue.text === "google" || providerValue.text === "gemini"
+            visible: providerValue.text === "google" 
             Layout.fillWidth: true
             text: i18n("Get a free API Key at: <a href='%1'>Google AI Studio</a>", "https://aistudio.google.com/app/apikey")
             textFormat: Text.RichText
@@ -98,7 +99,7 @@ Item {
 
         QQC2.ComboBox {
             id: geminiModelComboBox
-            visible: providerValue.text === "google" || providerValue.text === "gemini"
+            visible: providerValue.text === "google" 
             Kirigami.FormData.label: i18n("Google Model:")
             Layout.fillWidth: true
             model: [
@@ -128,6 +129,18 @@ Item {
                     }
                 }
             }
+        }
+
+        QQC2.CheckBox {
+            id: googleSearchEnabledCheckBox
+            visible: providerValue.text === "google" 
+            Kirigami.FormData.label: i18n("Grounding:")
+            text: i18n("Enable Google Search")
+            Layout.fillWidth: true
+            
+            QQC2.ToolTip.visible: hovered
+            QQC2.ToolTip.text: i18n("Allow Google AI to search the web for up-to-date information.")
+            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
         }
 
         // --- OpenRouter Settings ---
